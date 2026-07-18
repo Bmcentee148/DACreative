@@ -1,0 +1,7 @@
+# macOS
+.DS_Store
+
+# Source assets — full-res originals the site is built from.
+# Kept locally, not committed: the derivatives in images/ are what ship.
+# See CLAUDE.md for the crop/encode commands that regenerate them.
+src/

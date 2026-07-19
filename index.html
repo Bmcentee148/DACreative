@@ -27,6 +27,7 @@
   --blush-deep:#D9B29E; /* warm blush accent */
   --espresso:#403830;   /* footer */
   --line:#E6D8CC;       /* hairlines */
+  --white:#FFFFFF;      /* client logo cards only — their art has a pure-white bg, --paper would seam */
   --maxw:1160px;
   color-scheme: only light;
 }
@@ -228,12 +229,26 @@ img{max-width:100%;display:block}
 .svc>p{color:var(--ink-soft);font-size:.98rem}
 /* benefit-led hook sits above the explainer; needs .svc p.x to outrank .svc>p */
 .svc p.svc-lede{color:var(--ink);font-weight:600;font-size:1.04rem;line-height:1.45;margin-bottom:.55em}
-.svc ul{list-style:none;margin:18px 0 0;padding:0;display:grid;gap:10px}
-.svc li{position:relative;padding-left:24px;font-size:.92rem;color:var(--ink)}
-.svc li::before{content:"";position:absolute;left:0;top:.55em;width:8px;height:8px;background:var(--blush-deep);border-radius:50%}
+.svc ul,.featured-list{list-style:none;margin:18px 0 0;padding:0;display:grid;gap:10px}
+.svc li,.featured-list li{position:relative;padding-left:24px;font-size:.92rem;color:var(--ink)}
+.svc li::before,.featured-list li::before{content:"";position:absolute;left:0;top:.55em;width:8px;height:8px;background:var(--blush-deep);border-radius:50%}
 
 /* ---------- work ---------- */
 .work-lead{display:grid;gap:40px;grid-template-columns:1fr;align-items:center;margin-bottom:56px}
+/* client logo sits on pure white: their artwork has an opaque white bg and an off-palette
+   teal, so a white card frames it as their mark rather than clashing with the section */
+.featured-logo{
+  background:var(--white);border:1px solid var(--line);border-radius:22px;
+  padding:clamp(30px,5vw,54px);
+  box-shadow:0 28px 46px -34px rgba(120,105,90,.7);
+  display:flex;align-items:center;justify-content:center;
+}
+/* height:auto is required — the width/height attrs otherwise beat any CSS sizing */
+.featured-logo img{width:100%;height:auto;max-width:340px}
+.featured-copy h3{font-size:clamp(1.55rem,3.4vw,2.05rem);margin-bottom:.45em}
+.featured-copy p{color:var(--ink-soft);font-size:.98rem}
+a.client-handle{text-decoration:none;transition:color .2s}
+a.client-handle:hover{color:var(--gold)}
 .spotlight-copy .eyebrow{display:block;margin-bottom:12px}
 .spotlight-copy h3{font-size:clamp(1.7rem,4vw,2.3rem);margin-bottom:.5em}
 .spotlight-copy p{color:var(--ink-soft)}
@@ -339,6 +354,7 @@ form .btn-primary{width:100%;justify-content:center;margin-top:6px}
   .field input,.field textarea{background:#FAF5EE !important;color:#463D35 !important}
   .contact-note,.cream-2{background:#F5E9E0 !important}
   .portrait img{background:#F5E9E0 !important;border-color:#E6D8CC !important}
+  .featured-logo{background:#FFFFFF !important;border-color:#E6D8CC !important}
   .portrait figcaption{color:#9C7C3F !important}
   .footer{background:#403830 !important;color:#EAE0D6 !important}
   h1,h2,h3{color:inherit}
@@ -578,39 +594,29 @@ form .btn-primary{width:100%;justify-content:center;margin-top:6px}
   <section class="section tint" id="work">
     <div class="wrap">
       <div class="section-head reveal">
-        <span class="eyebrow">Selected work</span>
-        <h2>The accounts we manage.</h2>
-        <p>A small, growing collection of brands we're lucky to work with.</p>
+        <span class="eyebrow">Featured client</span>
+        <h2>A closer look at one partnership.</h2>
+        <p>What it looks like when a practice trusts us with more than the feed.</p>
       </div>
 
-      <div class="clients">
-        <article class="client-card reveal">
-          <div class="client-cover" style="background-image:url(images/client-riverside.png);background-size:cover;background-position:center"></div>
-          <div class="client-body">
-            <span class="client-handle">@riversidederm · Dermatology</span>
-            <h3 class="client-name">Riverside Dermatology</h3>
-            <p>Full-service management, monthly on-site photography, and a warmer, more human voice.</p>
-            <div class="client-metric"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M17 7h4v4"/></svg>Grew to 4.2K followers in 6 months</div>
-          </div>
-        </article>
-        <article class="client-card reveal">
-          <div class="client-cover" style="background-image:url(images/client-coastal.png);background-size:cover;background-position:center"></div>
-          <div class="client-body">
-            <span class="client-handle">@coastalsmiles · Dental</span>
-            <h3 class="client-name">Coastal Family Dental</h3>
-            <p>Consistent posting, real patient stories, and content built to get appointments booked.</p>
-            <div class="client-metric"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M17 7h4v4"/></svg>3× engagement in the first quarter</div>
-          </div>
-        </article>
-        <article class="client-card reveal">
-          <div class="client-cover" style="background-image:url(images/client-wellspring.png);background-size:cover;background-position:center"></div>
-          <div class="client-body">
-            <span class="client-handle">@wellspringpeds · Pediatrics</span>
-            <h3 class="client-name">Wellspring Pediatrics</h3>
-            <p>Reels, community management, and a feed parents actually trust and follow.</p>
-            <div class="client-metric"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M17 7h4v4"/></svg>120+ new patient inquiries from social</div>
-          </div>
-        </article>
+      <div class="work-lead reveal">
+        <div class="featured-logo">
+          <img src="images/client-jamesfowler.webp" alt="James Fowler Physical Therapy" width="600" height="261" loading="lazy" decoding="async">
+        </div>
+        <div class="featured-copy">
+          <a class="client-handle" href="https://www.instagram.com/jamesfowlerpt/" target="_blank" rel="noopener">@jamesfowlerpt &middot; Physical Therapy</a>
+          <h3>James Fowler Physical Therapy</h3>
+          <p>We work as an extension of their team rather than an agency they hand things off to &mdash; overseeing every part of how the practice shows up online, and keeping it professional, educational, and approachable throughout.</p>
+          <p>It's more than a feed. We help tell the story of the practice: educating patients, showing the team behind the treatment, and sharing the success stories that build trust. Their specialty services get the same care &mdash; women's health, massage therapy, personal training, orthotics, and sports rehabilitation.</p>
+          <ul class="featured-list">
+            <li>Social strategy &amp; monthly content calendars</li>
+            <li>Photography, videography &amp; Reels editing</li>
+            <li>SEO blog writing &amp; newsletters</li>
+            <li>Website content &amp; graphic design</li>
+            <li>Marketing campaign development</li>
+            <li>Community management &amp; engagement</li>
+          </ul>
+        </div>
       </div>
 
       <div class="work-nudge reveal">

@@ -45,6 +45,15 @@ cwebp -lossless -z 9 -q 100 -resize 1000 0 -alpha_filter best /tmp/logo-crop.png
 
 Because the crop removes the built-in padding, `.hero-logo`'s bottom margin supplies all the breathing room below the mark — don't reduce it assuming the image has its own.
 
+**Featured client.** `#work` shows one real client — James Fowler Physical Therapy (`@jamesfowlerpt`) — using the `.work-lead` two-column grid. It previously held three **invented** practices (Riverside Dermatology, Coastal Family Dental, Wellspring Pediatrics) with fabricated metrics; that markup is gone but `.clients` / `.client-card` / `.client-cover` / `.client-metric` CSS is deliberately kept so the grid can return when there are more clients (old markup is in git history).
+
+`images/client-jamesfowler.webp` is lossless WebP from `src/Client_logo.png`. Two properties of the source drive the treatment: it has **no alpha** (opaque white bg) and its teal/slate is **off-palette**, so it sits on a pure-white `.featured-logo` card — hence `--white:#FFFFFF`, which exists only for this. `--paper` (`#FFFDFA`) would leave a visible seam against the logo's white. The artwork fills just 16.5% of the 1200×630 canvas, so it's cropped tight and the card's padding supplies the breathing room:
+
+```sh
+sips -c 237 546 --cropOffset 197 332 src/Client_logo.png --out /tmp/jf.png
+cwebp -lossless -z 9 -q 100 -resize 600 0 /tmp/jf.png -o images/client-jamesfowler.webp
+```
+
 **Founder portraits.** `images/daniela.webp` and `images/alana.webp` are lossy WebP (q82, 800×1200) derived from `src/Daniela.JPG` and `src/Alana.JPG`. Use lossy for photographs; lossless is for the logo and flat art only.
 
 The two originals arrived at different aspect ratios (2:3 and 4:5) with head sizes ~1.8× apart, which is why they're cropped rather than used as-is — an unmatched pair reads as accidental. Both are cropped to 2:3 with head scale brought within ~1.4×, keeping each subject's camera in frame:

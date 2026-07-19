@@ -4,7 +4,9 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## What this is
 
-A single-page marketing site for **DA Creative Co.**, a boutique social media management and photography studio. Built by Benchwork Digital for the client. The brand went through a naming detour (earlier revisions say "Focus & Feed") and landed back on DA Creative Co. — if you find a stale Focus & Feed / F&F reference outside `index_old.html`, it's a bug.
+A single-page marketing site for **D&A Creative Co.**, a boutique social media management and photography studio. Built by Benchwork Digital for the client.
+
+**The name is "D&A Creative Co." — with the ampersand.** It comes from the founders, Daniela and Alana, and the client's own copy leans on a D&A → DNA wordplay ("every brand has its own DNA"), so the ampersand carries meaning and isn't decorative. Earlier revisions of this repo used "Focus & Feed" and then briefly "DA Creative Co." without the ampersand; both are stale. Any bare `DA Creative Co.`, `Focus & Feed`, or `F&F` outside `index_old.html` is a bug.
 
 There is no build system, no package manager, no tests, and no dependencies to install. `index.html` is the entire site: HTML, CSS (in one `<style>` block), and JS (in one `<script>` block at the bottom of `<body>`).
 
@@ -32,12 +34,12 @@ Sections in document order, each with an anchor id used by both the desktop nav 
 
 **`src/` holds the full-res originals and is gitignored.** Only the derivatives in `images/` are committed and served — nothing in `src/` is referenced by `index.html`. It currently holds the founder photos, the logo original, `Logo_Canva.png` (the superseded Focus & Feed mark, reference only), and `Client_logo.png` (1200×630, purpose not yet established — unused). Because it's ignored, **`src/` is not backed up by git**; treat the client's originals as living only on this machine unless they're archived elsewhere.
 
-`images/dacreative-logo.webp` is a 1000×716 lossless WebP (78KB); the full-res 2000×2000 original is `src/DACreative_logo.png`.
+`images/dacreative-logo.webp` is a 1000×713 lossless WebP (78KB); the full-res 2000×2000 original is `src/D&A_Logo.png`. (`src/DACreative_logo.png` is the earlier ampersand-less version — superseded, kept only as archive.)
 
-**The web copy is cropped to the artwork.** The supplied original is a 2000×2000 square in which the mark occupies only ~53% of the canvas (16% dead space above, 22% below), so sizing it by the canvas renders it visibly smaller than it should be. The shipped crop is the alpha bounding box — offset 103,317 at 1735×1241 — giving a true 1.398:1 aspect. Re-crop from the original if you ever regenerate:
+**The web copy is cropped to the artwork.** The supplied original is a 2000×2000 square in which the mark occupies only ~53% of the canvas (16% dead space above, 22% below), so sizing it by the canvas renders it visibly smaller than it should be. The shipped crop is the alpha bounding box — offset 103,303 at 1761×1255 — giving a true 1.403:1 aspect. Re-crop from the original if you ever regenerate:
 
 ```sh
-sips -c 1241 1735 --cropOffset 317 103 src/DACreative_logo.png --out /tmp/logo-crop.png
+sips -c 1255 1761 --cropOffset 303 103 'src/D&A_Logo.png' --out /tmp/logo-crop.png
 cwebp -lossless -z 9 -q 100 -resize 1000 0 -alpha_filter best /tmp/logo-crop.png -o images/dacreative-logo.webp
 ```
 
@@ -60,12 +62,12 @@ If either portrait is ever replaced, re-match the head scale — that, not the c
 WebP is used without a `<picture>` fallback on purpose — the original build already shipped a base64 WebP hero logo with no fallback, and Safari has supported it since 2020. `libwebp` is installed via Homebrew, so `cwebp`/`dwebp` are available for re-encoding:
 
 ```sh
-cwebp -lossless -z 9 -q 100 -resize 1000 0 src/DACreative_logo.png -o images/dacreative-logo.webp
+cwebp -lossless -z 9 -q 100 -resize 1000 0 -alpha_filter best /tmp/logo-crop.png -o images/dacreative-logo.webp
 ```
 
 Use `-lossless` for the logo and any flat/line art. The mark is ~92% transparent pixels over about 60 opaque colors, so lossless costs little and avoids artifacts on the thin script strokes.
 
-The logo is a **wreath badge with the "social media management" tagline baked into the artwork**, so it only works at hero size. The nav and footer deliberately use a Fraunces text wordmark instead ("DA <em>Creative</em> Co."), not the image — the badge at 48px nav height is illegible, and its dark-brown script would disappear on the espresso footer.
+The logo is a **wreath badge with the "social media management" tagline baked into the artwork**, so it only works at hero size. The nav and footer deliberately use a Fraunces text wordmark instead ("D&amp;A <em>Creative</em> Co."), not the image — the badge at 48px nav height is illegible, and its dark-brown script would disappear on the espresso footer.
 
 **Animation respects `prefers-reduced-motion`,** both via a CSS block that neutralizes `.reveal`/hover transitions and via a JS check in the likes-ticker (it renders the final number and returns early). Any new motion needs the same treatment.
 

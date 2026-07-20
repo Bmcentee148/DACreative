@@ -315,7 +315,7 @@ a.client-handle:hover{color:var(--gold)}
 .contact-note p{margin:0;font-size:.92rem;color:var(--ink)}
 form{background:var(--paper);border:1px solid var(--line);border-radius:24px;padding:34px 30px;box-shadow:0 30px 60px -46px rgba(120,105,90,.7)}
 .field{margin-bottom:20px}
-.field label{display:block;font-weight:700;font-size:.82rem;letter-spacing:.06em;text-transform:uppercase;color:var(--taupe);margin-bottom:8px}
+.field label{display:block;font-weight:700;font-size:.82rem;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:8px}
 .field input,.field textarea{
   width:100%;font-family:"Mulish",sans-serif;font-size:1rem;color:var(--ink);
   padding:13px 15px;border:1px solid var(--line);border-radius:12px;background:var(--cream);
@@ -323,6 +323,26 @@ form{background:var(--paper);border:1px solid var(--line);border-radius:24px;pad
 }
 .field input:focus,.field textarea:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px rgba(185,151,91,.18)}
 .field textarea{resize:vertical;min-height:120px}
+/* placeholder was browser-default grey; --taupe keeps it in palette and clearly
+   lighter than the --ink input text so it never reads as a pre-filled value */
+.field input::placeholder,.field textarea::placeholder{color:var(--taupe);opacity:1}
+
+/* form states */
+.form-error{
+  margin:0 0 14px;padding:12px 14px;border-radius:12px;
+  background:#F7E4DC;border:1px solid var(--blush-deep);
+  color:#7A4433;font-size:.9rem;
+}
+.form-sent{
+  background:var(--paper);border:1px solid var(--line);border-radius:24px;
+  padding:44px 34px;text-align:center;
+  box-shadow:0 30px 60px -46px rgba(120,105,90,.7);
+}
+.form-sent .spark{width:26px;height:26px;margin:0 auto 16px}
+.form-sent h3{font-size:1.7rem;margin-bottom:.4em}
+.form-sent p{color:var(--ink-soft);margin:0;font-size:.98rem}
+.form-sent:focus{outline:none}
+.form-sent:focus-visible{outline:2.5px solid var(--gold-deep);outline-offset:3px}
 form .btn-primary{width:100%;justify-content:center;margin-top:6px}
 .hp{position:absolute;left:-9999px}
 
@@ -367,6 +387,8 @@ form .btn-primary{width:100%;justify-content:center;margin-top:6px}
   .contact-note,.cream-2{background:#F5E9E0 !important}
   .portrait img{background:#F5E9E0 !important;border-color:#E6D8CC !important}
   .featured-logo{background:#FFFFFF !important;border-color:#E6D8CC !important}
+  .form-sent{background:#FFFDFA !important;border-color:#E6D8CC !important}
+  .form-error{background:#F7E4DC !important;color:#7A4433 !important}
   .portrait figcaption{color:#9C7C3F !important}
   .footer{background:#403830 !important;color:#EAE0D6 !important}
   h1,h2,h3{color:inherit}
@@ -686,7 +708,7 @@ form .btn-primary{width:100%;justify-content:center;margin-top:6px}
 
         <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
           <input type="hidden" name="form-name" value="contact">
-          <p class="hp"><label>Don't fill this out: <input name="bot-field"></label></p>
+          <p class="hp" aria-hidden="true"><label>Don't fill this out: <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
           <div class="field">
             <label for="name">Your name</label>
             <input id="name" name="name" type="text" required autocomplete="name">
@@ -703,8 +725,14 @@ form .btn-primary{width:100%;justify-content:center;margin-top:6px}
             <label for="message">Tell us about your brand</label>
             <textarea id="message" name="message" placeholder="What have you built, and where do you want your social presence to go?" required></textarea>
           </div>
+          <p class="form-error" id="formError" role="alert" hidden></p>
           <button type="submit" class="btn btn-primary">Send message</button>
         </form>
+        <div class="form-sent" id="formSent" role="status" tabindex="-1" hidden>
+          <svg class="spark" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l1.6 6.8L20 12l-6.4 3.2L12 22l-1.6-6.8L4 12l6.4-3.2z"/></svg>
+          <h3>Message sent.</h3>
+          <p>Thanks for reaching out &mdash; we read every one of these ourselves. We'll be in touch shortly to talk through the fit.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -813,6 +841,43 @@ document.querySelectorAll('.reveal').forEach(el => io.observe(el));
     });
   }, {threshold:.4});
   likesIO.observe(bar);
+})();
+
+// contact form: submit to Netlify in the background so the visitor stays on the
+// page. Without this, Netlify serves its own unbranded confirmation and the
+// visitor is bounced off the site at the moment they decide to get in touch.
+(function(){
+  const form = document.querySelector('form[data-netlify]');
+  if(!form) return;
+  const sent   = document.getElementById('formSent');
+  const errBox = document.getElementById('formError');
+  const btn    = form.querySelector('button[type="submit"]');
+  const btnText = btn.textContent;
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();               // only fires once native validation passes
+    errBox.hidden = true;
+    btn.disabled = true;
+    btn.textContent = 'Sending…';
+
+    fetch('/', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+      body: new URLSearchParams(new FormData(form)).toString()
+    })
+    .then(function(res){
+      if(!res.ok) throw new Error('HTTP ' + res.status);
+      form.hidden = true;
+      sent.hidden = false;
+      sent.focus();                   // move focus so the change is announced
+    })
+    .catch(function(){
+      errBox.textContent = "Something went wrong sending that. Please try again, or email us directly.";
+      errBox.hidden = false;
+      btn.disabled = false;
+      btn.textContent = btnText;
+    });
+  });
 })();
 </script>
 </body>

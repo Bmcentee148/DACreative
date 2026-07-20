@@ -89,8 +89,8 @@ img{max-width:100%;display:block}
 /* ---------- sparkle ornament (echoes logo) ---------- */
 .spark{width:16px;height:16px;flex:none;color:var(--taupe)}
 .divider{display:flex;align-items:center;justify-content:center;gap:16px;margin:0 auto;max-width:340px;color:var(--taupe)}
-.divider::before,.divider::after{content:"";height:1px;flex:1;background:linear-gradient(90deg,transparent,var(--line))}
-.divider::after{background:linear-gradient(90deg,var(--line),transparent)}
+.divider::before,.divider::after{content:"";height:1px;flex:1;background:linear-gradient(90deg,transparent,var(--taupe))}
+.divider::after{background:linear-gradient(90deg,var(--taupe),transparent)}
 
 /* ---------- nav ---------- */
 .nav{
@@ -200,11 +200,11 @@ img{max-width:100%;display:block}
 .about-copy p{color:var(--ink-soft)}
 /* the copy builds to these two lines — set apart so they read as a close, not a fragment */
 .about-kicker{
-  font-family:"Cormorant Garamond",Georgia,serif;font-style:italic;
-  font-size:clamp(1.12rem,2.2vw,1.3rem);line-height:1.42;
+  font-family:"Cormorant Garamond",Georgia,serif;font-style:italic;font-weight:500;
+  font-size:clamp(1.45rem,2.8vw,1.75rem);line-height:1.4;
   color:var(--ink);margin-top:1.5em;margin-bottom:.6em;
 }
-.about-sign{font-family:"Cormorant Garamond",serif;font-style:italic;font-size:1.5rem;color:var(--blue-deep);margin-top:.2em}
+.about-sign{font-family:"Cormorant Garamond",serif;font-style:italic;font-weight:500;font-size:clamp(1.9rem,3.4vw,2.4rem);color:var(--blue-deep);margin-top:.35em}
 
 /* photo placeholders */
 .ph{
@@ -223,11 +223,11 @@ img{max-width:100%;display:block}
   border-radius:18px;border:1px solid var(--line);background:var(--sand);
   box-shadow:0 24px 40px -30px rgba(88,88,96,.75);
 }
-.portrait figcaption{
-  margin-top:12px;text-align:center;
-  font-family:"Inter",sans-serif;font-weight:700;font-size:.66rem;
-  letter-spacing:.2em;text-transform:uppercase;color:var(--blue-deep);
-}
+.portrait figcaption{margin-top:12px;display:flex;flex-direction:column;align-items:center;gap:6px}
+.portrait-name{font-family:"Inter",sans-serif;font-weight:700;font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:var(--blue-deep)}
+.portrait-ig{display:inline-flex;align-items:center;gap:6px;font-size:.78rem;font-weight:600;color:var(--ink);text-decoration:none;transition:color .2s}
+.portrait-ig svg{width:15px;height:15px;color:var(--taupe);flex:none;transition:color .2s}
+.portrait-ig:hover{color:var(--sage)}.portrait-ig:hover svg{color:var(--sage)}
 /* stagger keeps the pair from reading like a staff directory */
 .portrait.offset{margin-top:28px}
 
@@ -312,7 +312,7 @@ a.client-handle:hover{color:var(--sage)}
 .contact-note{display:flex;align-items:flex-start;gap:12px;margin-top:26px;padding:20px 22px;background:var(--sand);border-radius:16px;border:1px solid var(--line)}
 .contact-note .spark{margin-top:3px}
 .contact-note p{margin:0;font-size:.92rem;color:var(--ink)}
-.contact-list{list-style:none;margin:30px 0 0;padding:28px 0 0;border-top:1px solid var(--line);display:grid;gap:18px}
+.contact-list{list-style:none;margin:30px 0 0;padding:28px 0 0;border-top:1px solid var(--taupe);display:grid;gap:18px}
 .contact-list li{display:flex;align-items:center;gap:14px;font-size:1rem;color:var(--ink)}
 .contact-list svg{width:20px;height:20px;color:var(--taupe);flex:none}
 /* --gold-deep is ~3.6:1 here, so the text stays --ink and gold is the hover accent */
@@ -518,11 +518,17 @@ form .btn-primary{width:100%;justify-content:center;margin-top:6px}
         <div class="about-photos reveal">
           <figure class="portrait">
             <img src="images/daniela.webp" alt="Daniela, co-founder of D&amp;A Creative Co., holding a camera" width="800" height="1200" loading="lazy" decoding="async">
-            <figcaption>Daniela</figcaption>
+            <figcaption>
+              <span class="portrait-name">Daniela</span>
+              <a class="portrait-ig" href="https://www.instagram.com/danielaalexandra.photography/" target="_blank" rel="noopener" aria-label="Daniela's photography on Instagram, @danielaalexandra.photography"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg> Photography</a>
+            </figcaption>
           </figure>
           <figure class="portrait offset">
             <img src="images/alana.webp" alt="Alana, co-founder of D&amp;A Creative Co., holding a camera" width="800" height="1200" loading="lazy" decoding="async">
-            <figcaption>Alana</figcaption>
+            <figcaption>
+              <span class="portrait-name">Alana</span>
+              <a class="portrait-ig" href="https://www.instagram.com/alanafrancesca.photography/" target="_blank" rel="noopener" aria-label="Alana's photography on Instagram, @alanafrancesca.photography"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg> Photography</a>
+            </figcaption>
           </figure>
         </div>
         <div class="about-copy reveal">
@@ -770,7 +776,7 @@ form .btn-primary{width:100%;justify-content:center;margin-top:6px}
         <a href="#contact">Contact</a>
       </nav>
       <div class="socials">
-        <a href="#" aria-label="Instagram">
+        <a href="https://www.instagram.com/danielaalexandra.photography/" target="_blank" rel="noopener" aria-label="Daniela Alexandra Photography on Instagram">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
         </a>
         <a href="mailto:studio@dacreativeco.com" aria-label="Email D&amp;A Creative Co.">

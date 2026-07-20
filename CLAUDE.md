@@ -71,6 +71,8 @@ cwebp -q 82 -resize 800 0 /tmp/a.jpg -o images/alana.webp
 
 If either portrait is ever replaced, re-match the head scale — that, not the crop ratio, is what makes the pair look art-directed.
 
+Each portrait caption links to that founder's **personal photography Instagram** (`@danielaalexandra.photography`, `@alanafrancesca.photography`) — used for now while there's no on-site portfolio. The footer Instagram icon points to Daniela's. There is no D&A company Instagram yet; if one appears, the footer icon should move to it.
+
 **Gotcha:** `<img>` `width`/`height` attributes are presentational hints that beat CSS `aspect-ratio` when both dimensions resolve. Any `img` rule using `aspect-ratio` must also set `height:auto`, or the attribute wins and `object-fit:cover` silently crops a zoomed slice. Both `.hero-logo` and `.portrait img` set it. 
 
 WebP is used without a `<picture>` fallback on purpose — the original build already shipped a base64 WebP hero logo with no fallback, and Safari has supported it since 2020. `libwebp` is installed via Homebrew, so `cwebp`/`dwebp` are available for re-encoding:

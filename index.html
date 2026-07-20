@@ -18,99 +18,98 @@
 <meta property="og:image" content="https://dacreativeco.com/images/og-image.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="D&amp;A Creative Co. — social media management">
-<meta name="theme-color" content="#FAF5EE">
+<meta property="og:image:alt" content="D&amp;A Creative Co. — Strategy. Storytelling. Content that connects.">
+<meta name="theme-color" content="#F6F4F0">
 <meta name="color-scheme" content="light">
 <meta name="supported-color-schemes" content="light">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Mulish:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root{
-  --cream:#FAF5EE;      /* warm ivory base */
-  --cream-2:#F5E9E0;    /* blush-tinted section */
-  --paper:#FFFDFA;      /* card surface */
-  --ink:#463D35;        /* deep warm brown text */
-  --ink-soft:#6C6157;   /* muted body */
-  --taupe:#7D7268;      /* brand script tone */
-  --gold:#B9975B;       /* botanical accent */
-  --gold-deep:#9C7C3F;  /* gold for small text/links */
-  --blush:#E7CFC2;      /* watercolor soft */
-  --blush-deep:#D9B29E; /* warm blush accent */
-  --espresso:#403830;   /* footer */
-  --line:#E6D8CC;       /* hairlines */
-  --white:#FFFFFF;      /* client logo cards only — their art has a pure-white bg, --paper would seam */
+  --ivory:#F6F4F0;      /* primary background */
+  --sand:#DCCEBB;       /* alternate sections, soft fills */
+  --paper:#FFFFFF;      /* cards, form, nav, drawer surface */
+  --white:#FFFFFF;      /* explicit white (client logo card) */
+  --ink:#3A3A3A;        /* charcoal — body & headings */
+  --ink-soft:#6B6862;   /* muted body text */
+  --blue:#6A7C9A;       /* dusty blue — primary brand: buttons, accents */
+  --blue-deep:#4F5F79;  /* darker dusty blue — links & small text (AA) */
+  --sage:#50645A;       /* sage green — hover states, secondary accent */
+  --taupe:#B79F8A;      /* warm taupe — icons, dividers, ornaments, placeholder */
+  --charcoal:#3A3A3A;   /* footer */
+  --line:#E4DBCE;       /* hairlines — soft sand */
   --maxw:1160px;
   color-scheme: only light;
 }
 *{box-sizing:border-box}
-html{scroll-behavior:smooth;background:var(--cream);color-scheme:only light;-webkit-text-size-adjust:100%}
+html{scroll-behavior:smooth;background:var(--ivory);color-scheme:only light;-webkit-text-size-adjust:100%}
 @media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
 body{
   margin:0;
-  font-family:"Mulish",system-ui,sans-serif;
+  font-family:"Inter",system-ui,sans-serif;
   color:var(--ink);
-  background:var(--cream);
+  background:var(--ivory);
   line-height:1.65;
   -webkit-font-smoothing:antialiased;
   overflow-x:hidden;
   color-scheme:only light;
 }
-h1,h2,h3{font-family:"Fraunces",Georgia,serif;font-weight:500;line-height:1.12;letter-spacing:-.01em;margin:0}
+h1,h2,h3{font-family:"Cormorant Garamond",Georgia,serif;font-weight:600;line-height:1.12;letter-spacing:-.01em;margin:0}
 p{margin:0 0 1em}
 a{color:inherit}
 img{max-width:100%;display:block}
 .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
 
 .eyebrow{
-  font-family:"Mulish",sans-serif;
+  font-family:"Inter",sans-serif;
   font-weight:700;
   font-size:.72rem;
   letter-spacing:.28em;
   text-transform:uppercase;
-  color:var(--gold-deep);
+  color:var(--blue-deep);
 }
 
 /* ---------- buttons ---------- */
 .btn{
   display:inline-flex;align-items:center;gap:.5em;
-  font-family:"Mulish",sans-serif;font-weight:700;font-size:.92rem;
+  font-family:"Inter",sans-serif;font-weight:700;font-size:.92rem;
   letter-spacing:.02em;
   padding:.85em 1.7em;border-radius:999px;
   text-decoration:none;cursor:pointer;border:1px solid transparent;
   transition:transform .25s ease, box-shadow .25s ease, background .25s ease, color .25s ease;
 }
-.btn-primary{background:var(--taupe);color:#fff;box-shadow:0 8px 22px -12px rgba(64,56,48,.6)}
-.btn-primary:hover{transform:translateY(-2px);box-shadow:0 14px 30px -12px rgba(64,56,48,.7);background:#6b6157}
+.btn-primary{background:var(--blue-deep);color:#fff;box-shadow:0 8px 22px -12px rgba(58,58,64,.6)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 14px 30px -12px rgba(58,58,64,.7);background:#41506B}
 .btn-ghost{background:transparent;color:var(--ink);border-color:var(--line)}
-.btn-ghost:hover{border-color:var(--gold);color:var(--gold-deep);transform:translateY(-2px)}
-.textlink{color:var(--gold-deep);font-weight:700;text-decoration:none;border-bottom:1.5px solid transparent;transition:border-color .2s}
-.textlink:hover{border-color:var(--gold)}
+.btn-ghost:hover{border-color:var(--sage);color:var(--sage);transform:translateY(-2px)}
+.textlink{color:var(--blue-deep);font-weight:700;text-decoration:none;border-bottom:1.5px solid transparent;transition:border-color .2s}
+.textlink:hover{border-color:var(--sage)}
 
 /* ---------- sparkle ornament (echoes logo) ---------- */
-.spark{width:16px;height:16px;flex:none;color:var(--gold)}
-.divider{display:flex;align-items:center;justify-content:center;gap:16px;margin:0 auto;max-width:340px;color:var(--gold)}
+.spark{width:16px;height:16px;flex:none;color:var(--taupe)}
+.divider{display:flex;align-items:center;justify-content:center;gap:16px;margin:0 auto;max-width:340px;color:var(--taupe)}
 .divider::before,.divider::after{content:"";height:1px;flex:1;background:linear-gradient(90deg,transparent,var(--line))}
 .divider::after{background:linear-gradient(90deg,var(--line),transparent)}
 
 /* ---------- nav ---------- */
 .nav{
   position:sticky;top:0;z-index:60;
-  background:rgba(250,245,238,.82);
+  background:rgba(246,244,240,.82);
   backdrop-filter:saturate(140%) blur(10px);
   border-bottom:1px solid transparent;
   transition:border-color .3s, box-shadow .3s, background .3s;
 }
-.nav.scrolled{border-color:var(--line);box-shadow:0 6px 20px -18px rgba(64,56,48,.9)}
+.nav.scrolled{border-color:var(--line);box-shadow:0 6px 20px -18px rgba(58,58,64,.9)}
 .nav-inner{display:flex;align-items:center;justify-content:space-between;height:72px}
 .nav-logo{display:flex;flex-direction:column;line-height:1;gap:3px;text-decoration:none}
-.nav-logo .bm{font-family:"Fraunces",Georgia,serif;font-weight:500;font-size:1.2rem;letter-spacing:.01em;color:var(--ink);white-space:nowrap}
-.nav-logo .bm span{color:var(--gold-deep);font-style:italic}
-.nav-logo .bt{font-family:"Mulish",sans-serif;font-size:.5rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-deep)}
+.nav-logo .bm{font-family:"Cormorant Garamond",Georgia,serif;font-weight:500;font-size:1.2rem;letter-spacing:.01em;color:var(--ink);white-space:nowrap}
+.nav-logo .bm span{color:var(--blue-deep);font-style:italic}
+.nav-logo .bt{font-family:"Inter",sans-serif;font-size:.5rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--blue-deep)}
 @media(max-width:400px){.nav-logo .bm{font-size:1.05rem}.nav-logo .bt{letter-spacing:.14em}}
 .nav-links{display:none;align-items:center;gap:30px}
 .nav-links a{text-decoration:none;font-weight:600;font-size:.95rem;color:var(--ink-soft);transition:color .2s}
-.nav-links a:hover{color:var(--gold-deep)}
+.nav-links a:hover{color:var(--blue-deep)}
 .nav-cta{display:none}
 .burger{display:inline-flex;flex-direction:column;gap:5px;background:none;border:0;cursor:pointer;padding:8px}
 .burger span{width:26px;height:2px;background:var(--ink);border-radius:2px;transition:.3s}
@@ -123,37 +122,37 @@ img{max-width:100%;display:block}
   position:fixed;inset:0 0 0 auto;width:min(78vw,320px);
   background:var(--paper);z-index:70;
   transform:translateX(100%);transition:transform .38s cubic-bezier(.5,0,.2,1);
-  box-shadow:-20px 0 50px -30px rgba(64,56,48,.6);
+  box-shadow:-20px 0 50px -30px rgba(58,58,64,.6);
   padding:96px 32px 40px;display:flex;flex-direction:column;gap:8px;
 }
 .drawer.open{transform:translateX(0)}
-.drawer a{text-decoration:none;font-family:"Fraunces",serif;font-size:1.4rem;color:var(--ink);padding:12px 0;border-bottom:1px solid var(--line)}
+.drawer a{text-decoration:none;font-family:"Cormorant Garamond",serif;font-size:1.4rem;color:var(--ink);padding:12px 0;border-bottom:1px solid var(--line)}
 .drawer a:last-of-type{border:0}
 .drawer .btn{margin-top:26px;justify-content:center}
 .drawer .drawer-cta{
-  width:100%;font-family:"Mulish",sans-serif;font-weight:800;
+  width:100%;font-family:"Inter",sans-serif;font-weight:800;
   font-size:1.02rem;letter-spacing:.05em;padding:1.05em 1.6em;
   border-radius:999px;color:#fff;
-  background:linear-gradient(135deg,var(--taupe) 0%,#6b6057 100%);
-  box-shadow:0 14px 28px -12px rgba(64,56,48,.7);
+  background:linear-gradient(135deg,var(--blue-deep) 0%,#3E4A60 100%);
+  box-shadow:0 14px 28px -12px rgba(58,58,64,.7);
 }
-.drawer .drawer-cta:hover{transform:translateY(-1px);box-shadow:0 18px 32px -12px rgba(64,56,48,.78)}
-.drawer .drawer-cta:active{transform:translateY(0);box-shadow:0 8px 18px -12px rgba(64,56,48,.7)}
+.drawer .drawer-cta:hover{transform:translateY(-1px);box-shadow:0 18px 32px -12px rgba(58,58,64,.78)}
+.drawer .drawer-cta:active{transform:translateY(0);box-shadow:0 8px 18px -12px rgba(58,58,64,.7)}
 .drawer .drawer-cta .cta-ico{width:1.15em;height:1.15em;margin-top:-1px;flex:0 0 auto}
-.scrim{position:fixed;inset:0;background:rgba(64,56,48,.28);z-index:65;opacity:0;pointer-events:none;transition:opacity .3s}
+.scrim{position:fixed;inset:0;background:rgba(58,58,64,.28);z-index:65;opacity:0;pointer-events:none;transition:opacity .3s}
 .scrim.show{opacity:1;pointer-events:auto}
 
 /* ---------- hero ---------- */
 .hero{position:relative;text-align:center;padding:64px 0 84px;overflow:hidden}
 .bloom{position:absolute;border-radius:50%;filter:blur(48px);opacity:.6;z-index:0;pointer-events:none}
-.bloom.b1{width:520px;height:520px;background:radial-gradient(circle,#F4DCCE,transparent 68%);top:-120px;left:-140px}
-.bloom.b2{width:460px;height:460px;background:radial-gradient(circle,#EFE2C4,transparent 68%);top:20px;right:-160px}
-.bloom.b3{width:420px;height:420px;background:radial-gradient(circle,#F6E5DD,transparent 70%);bottom:-160px;left:38%}
+.bloom.b1{width:520px;height:520px;background:radial-gradient(circle,#E7DAC8,transparent 68%);top:-120px;left:-140px}
+.bloom.b2{width:460px;height:460px;background:radial-gradient(circle,#DDE3EC,transparent 68%);top:20px;right:-160px}
+.bloom.b3{width:420px;height:420px;background:radial-gradient(circle,#DEE6E0,transparent 70%);bottom:-160px;left:38%}
 .hero-inner{position:relative;z-index:2;max-width:820px;margin:0 auto}
 /* logo is cropped to its artwork (1.4:1) — no built-in padding, so the margin below supplies all the breathing room */
-.hero-logo{width:clamp(264px,84vw,460px);height:auto;margin:0 auto clamp(30px,5vw,60px);filter:drop-shadow(0 12px 26px rgba(120,105,90,.18))}
+.hero-logo{width:clamp(264px,84vw,460px);height:auto;margin:0 auto clamp(30px,5vw,60px);filter:drop-shadow(0 12px 26px rgba(88,88,96,.18))}
 .hero h1{font-size:clamp(2.35rem,7vw,4rem);color:var(--ink);margin:.1em 0 .3em}
-.hero h1 em{font-style:italic;color:var(--taupe)}
+.hero h1 em{font-style:italic;color:var(--blue)}
 .hero-sub{font-size:clamp(1.05rem,2.4vw,1.22rem);color:var(--ink-soft);max-width:600px;margin:0 auto 2em}
 .hero-cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;align-items:center}
 
@@ -161,8 +160,8 @@ img{max-width:100%;display:block}
 .values{padding:14px 0 72px}
 .values-grid{display:grid;gap:26px;grid-template-columns:1fr}
 .value{background:var(--paper);border:1px solid var(--line);border-radius:20px;padding:32px 28px;text-align:center;transition:transform .3s,box-shadow .3s}
-.value:hover{transform:translateY(-4px);box-shadow:0 24px 40px -30px rgba(120,105,90,.6)}
-.value .ic{width:46px;height:46px;margin:0 auto 16px;color:var(--gold)}
+.value:hover{transform:translateY(-4px);box-shadow:0 24px 40px -30px rgba(88,88,96,.6)}
+.value .ic{width:46px;height:46px;margin:0 auto 16px;color:var(--taupe)}
 .value h3{font-size:1.32rem;margin-bottom:.4em}
 .value p{color:var(--ink-soft);font-size:.98rem;margin:0}
 
@@ -172,12 +171,12 @@ img{max-width:100%;display:block}
 .section-head .eyebrow{display:inline-block;margin-bottom:14px}
 .section-head h2{font-size:clamp(2rem,5vw,2.9rem);color:var(--ink)}
 .section-head p{color:var(--ink-soft);margin-top:.7em}
-.tint{background:var(--cream-2)}
+.tint{background:var(--sand)}
 /* positioning statement — closes the "how we do it" section */
 .svc-statement{text-align:center;max-width:720px;margin:clamp(52px,7vw,84px) auto 0;padding-top:clamp(40px,6vw,60px);border-top:1px solid var(--line)}
-.statement-mark{display:inline-block;width:26px;height:26px;color:var(--gold);margin-bottom:20px}
-.statement-text{font-family:"Fraunces",serif;font-weight:500;font-size:clamp(1.45rem,3.3vw,2.15rem);line-height:1.32;color:var(--ink)}
-.statement-text em{font-style:italic;color:var(--taupe);display:block;margin-top:.4em}
+.statement-mark{display:inline-block;width:26px;height:26px;color:var(--taupe);margin-bottom:20px}
+.statement-text{font-family:"Cormorant Garamond",serif;font-weight:500;font-size:clamp(1.45rem,3.3vw,2.15rem);line-height:1.32;color:var(--ink)}
+.statement-text em{font-style:italic;color:var(--blue);display:block;margin-top:.4em}
 /* why it matters — editorial outcomes */
 .why{border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
 .why-grid{display:grid;gap:44px;grid-template-columns:1fr;align-items:start}
@@ -186,8 +185,8 @@ img{max-width:100%;display:block}
 .why-lead p{color:var(--ink-soft);max-width:36ch}
 .why-item{display:grid;grid-template-columns:auto 1fr;gap:22px;padding:26px 0;border-top:1px solid var(--line)}
 .why-item:first-child{border-top:0;padding-top:0}
-.why-num{font-family:"Fraunces",serif;font-size:1.4rem;color:var(--gold);line-height:1.1}
-.why-item h3{font-family:"Fraunces",serif;font-size:1.28rem;color:var(--ink);margin-bottom:.35em}
+.why-num{font-family:"Cormorant Garamond",serif;font-size:1.4rem;color:var(--blue);line-height:1.1}
+.why-item h3{font-family:"Cormorant Garamond",serif;font-size:1.28rem;color:var(--ink);margin-bottom:.35em}
 .why-item p{color:var(--ink-soft);font-size:.98rem}
 @media(min-width:880px){
   .why-grid{grid-template-columns:.82fr 1.18fr;gap:66px}
@@ -201,33 +200,33 @@ img{max-width:100%;display:block}
 .about-copy p{color:var(--ink-soft)}
 /* the copy builds to these two lines — set apart so they read as a close, not a fragment */
 .about-kicker{
-  font-family:"Fraunces",Georgia,serif;font-style:italic;
+  font-family:"Cormorant Garamond",Georgia,serif;font-style:italic;
   font-size:clamp(1.12rem,2.2vw,1.3rem);line-height:1.42;
   color:var(--ink);margin-top:1.5em;margin-bottom:.6em;
 }
-.about-sign{font-family:"Fraunces",serif;font-style:italic;font-size:1.5rem;color:var(--taupe);margin-top:.2em}
+.about-sign{font-family:"Cormorant Garamond",serif;font-style:italic;font-size:1.5rem;color:var(--blue-deep);margin-top:.2em}
 
 /* photo placeholders */
 .ph{
-  position:relative;border-radius:22px;border:1.5px dashed var(--blush-deep);
-  background:linear-gradient(135deg,#F4E6DC,#EFE0D0 60%,#EAD9C8);
+  position:relative;border-radius:22px;border:1.5px dashed var(--taupe);
+  background:linear-gradient(135deg,#EDE7DC,#E4DBCE 60%,#DCCEBB);
   display:flex;align-items:center;justify-content:center;text-align:center;
-  color:var(--gold-deep);overflow:hidden;
+  color:var(--blue-deep);overflow:hidden;
 }
-.ph::after{content:attr(data-label);font-family:"Mulish",sans-serif;font-weight:700;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;opacity:.8;padding:0 18px}
+.ph::after{content:attr(data-label);font-family:"Inter",sans-serif;font-weight:700;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;opacity:.8;padding:0 18px}
 .ph .spark{position:absolute;opacity:.5}
 /* two portraits as a matched pair; both source images are cropped to 2:3 with head sizes aligned */
 .about-photos{display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:start}
 .portrait{margin:0}
 .portrait img{
   width:100%;height:auto;aspect-ratio:2/3;object-fit:cover;
-  border-radius:18px;border:1px solid var(--line);background:var(--cream-2);
-  box-shadow:0 24px 40px -30px rgba(120,105,90,.75);
+  border-radius:18px;border:1px solid var(--line);background:var(--sand);
+  box-shadow:0 24px 40px -30px rgba(88,88,96,.75);
 }
 .portrait figcaption{
   margin-top:12px;text-align:center;
-  font-family:"Mulish",sans-serif;font-weight:700;font-size:.66rem;
-  letter-spacing:.2em;text-transform:uppercase;color:var(--gold-deep);
+  font-family:"Inter",sans-serif;font-weight:700;font-size:.66rem;
+  letter-spacing:.2em;text-transform:uppercase;color:var(--blue-deep);
 }
 /* stagger keeps the pair from reading like a staff directory */
 .portrait.offset{margin-top:28px}
@@ -235,15 +234,15 @@ img{max-width:100%;display:block}
 /* ---------- services ---------- */
 .svc-grid{display:grid;gap:26px;grid-template-columns:1fr}
 .svc{background:var(--paper);border:1px solid var(--line);border-radius:22px;padding:36px 30px;transition:transform .3s,box-shadow .3s,border-color .3s}
-.svc:hover{transform:translateY(-5px);box-shadow:0 28px 46px -34px rgba(120,105,90,.7);border-color:var(--blush-deep)}
-.svc .ic{width:44px;height:44px;color:var(--gold);margin-bottom:18px}
+.svc:hover{transform:translateY(-5px);box-shadow:0 28px 46px -34px rgba(88,88,96,.7);border-color:var(--taupe)}
+.svc .ic{width:44px;height:44px;color:var(--taupe);margin-bottom:18px}
 .svc h3{font-size:1.5rem;margin-bottom:.45em}
 .svc>p{color:var(--ink-soft);font-size:.98rem}
 /* benefit-led hook sits above the explainer; needs .svc p.x to outrank .svc>p */
 .svc p.svc-lede{color:var(--ink);font-weight:600;font-size:1.04rem;line-height:1.45;margin-bottom:.55em}
 .svc ul,.featured-list{list-style:none;margin:18px 0 0;padding:0;display:grid;gap:10px}
 .svc li,.featured-list li{position:relative;padding-left:24px;font-size:.92rem;color:var(--ink)}
-.svc li::before,.featured-list li::before{content:"";position:absolute;left:0;top:.55em;width:8px;height:8px;background:var(--blush-deep);border-radius:50%}
+.svc li::before,.featured-list li::before{content:"";position:absolute;left:0;top:.55em;width:8px;height:8px;background:var(--taupe);border-radius:50%}
 
 /* ---------- work ---------- */
 .work-lead{display:grid;gap:40px;grid-template-columns:1fr;align-items:center;margin-bottom:56px}
@@ -252,7 +251,7 @@ img{max-width:100%;display:block}
 .featured-logo{
   background:var(--white);border:1px solid var(--line);border-radius:22px;
   padding:clamp(30px,5vw,54px);
-  box-shadow:0 28px 46px -34px rgba(120,105,90,.7);
+  box-shadow:0 28px 46px -34px rgba(88,88,96,.7);
   display:flex;align-items:center;justify-content:center;
 }
 /* height:auto is required — the width/height attrs otherwise beat any CSS sizing */
@@ -260,21 +259,21 @@ img{max-width:100%;display:block}
 .featured-copy h3{font-size:clamp(1.55rem,3.4vw,2.05rem);margin-bottom:.45em}
 .featured-copy p{color:var(--ink-soft);font-size:.98rem}
 a.client-handle{text-decoration:none;transition:color .2s}
-a.client-handle:hover{color:var(--gold)}
+a.client-handle:hover{color:var(--sage)}
 .spotlight-copy .eyebrow{display:block;margin-bottom:12px}
 .spotlight-copy h3{font-size:clamp(1.7rem,4vw,2.3rem);margin-bottom:.5em}
 .spotlight-copy p{color:var(--ink-soft)}
 .clients{display:grid;gap:26px;grid-template-columns:1fr;margin-bottom:8px}
 .client-card{background:var(--paper);border:1px solid var(--line);border-radius:22px;overflow:hidden;display:flex;flex-direction:column;transition:transform .3s,box-shadow .3s}
-.client-card:hover{transform:translateY(-5px);box-shadow:0 28px 46px -34px rgba(120,105,90,.7)}
-.client-cover{aspect-ratio:4/3;background:linear-gradient(135deg,#F4E6DC,#EFE0D0 60%,#EAD9C8);display:flex;align-items:center;justify-content:center;position:relative;border-bottom:1px solid var(--line)}
-.client-cover::after{content:attr(data-label);font:700 .7rem "Mulish",sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-deep);opacity:.72}
+.client-card:hover{transform:translateY(-5px);box-shadow:0 28px 46px -34px rgba(88,88,96,.7)}
+.client-cover{aspect-ratio:4/3;background:linear-gradient(135deg,#EDE7DC,#E4DBCE 60%,#DCCEBB);display:flex;align-items:center;justify-content:center;position:relative;border-bottom:1px solid var(--line)}
+.client-cover::after{content:attr(data-label);font:700 .7rem "Inter",sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--blue-deep);opacity:.72}
 .client-body{padding:22px;display:flex;flex-direction:column;flex:1}
-.client-handle{display:block;font-size:.76rem;font-weight:700;color:var(--gold-deep);letter-spacing:.03em;text-transform:uppercase;margin-bottom:6px}
+.client-handle{display:block;font-size:.76rem;font-weight:700;color:var(--blue-deep);letter-spacing:.03em;text-transform:uppercase;margin-bottom:6px}
 .client-name{font-size:1.38rem;margin-bottom:.35em}
 .client-body p{color:var(--ink-soft);font-size:.95rem;margin:0 0 16px}
 .client-metric{display:flex;align-items:center;gap:9px;font-size:.85rem;font-weight:700;color:var(--ink);border-top:1px dashed var(--line);padding-top:14px;margin-top:auto}
-.client-metric svg{width:17px;height:17px;color:var(--blush-deep);flex:none}
+.client-metric svg{width:17px;height:17px;color:var(--taupe);flex:none}
 .work-nudge{margin-top:60px}
 .work-nudge .divider{margin-bottom:36px}
 .nudge-inner{display:grid;gap:34px;grid-template-columns:1fr;align-items:center;justify-items:center;max-width:860px;margin:0 auto}
@@ -285,18 +284,18 @@ a.client-handle:hover{color:var(--gold)}
 .phone{
   width:210px;flex:none;background:var(--paper);border-radius:30px;
   border:1px solid var(--line);padding:12px;
-  box-shadow:0 30px 50px -34px rgba(120,105,90,.85);
+  box-shadow:0 30px 50px -34px rgba(88,88,96,.85);
 }
 .phone-top{display:flex;align-items:center;gap:8px;padding:6px 4px 12px}
-.phone-av{width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,var(--blush),var(--gold));flex:none;padding:3px}
-.phone-av img{width:100%;height:100%;object-fit:cover;border-radius:50%;background:var(--cream);display:block}
+.phone-av{width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,var(--sand),var(--taupe));flex:none;padding:3px}
+.phone-av img{width:100%;height:100%;object-fit:cover;border-radius:50%;background:var(--ivory);display:block}
 .phone-handle{font-weight:700;font-size:.82rem;color:var(--ink)}
 /* sized to keep "Managed by D&A Creative" on one line in the 210px mockup (~128px of room) */
 .phone-handle small{display:block;font-weight:500;color:var(--ink-soft);font-size:.66rem;letter-spacing:0;white-space:nowrap}
 .feed{display:grid;grid-template-columns:repeat(3,1fr);gap:4px}
 .feed span{aspect-ratio:1;border-radius:4px}
 .phone-likes{display:flex;align-items:center;gap:7px;padding:11px 8px 4px}
-.like-heart{width:19px;height:19px;flex:none;color:var(--blush-deep);transform-origin:center}
+.like-heart{width:19px;height:19px;flex:none;color:var(--blue);transform-origin:center}
 .like-count{font-weight:800;font-size:.92rem;color:var(--ink);font-variant-numeric:tabular-nums;letter-spacing:.01em}
 .like-label{font-size:.68rem;color:var(--ink-soft);font-weight:600}
 @keyframes heartbeat{0%,100%{transform:scale(1)}18%{transform:scale(1.32)}36%{transform:scale(.98)}54%{transform:scale(1.16)}72%{transform:scale(1)}}
@@ -310,24 +309,24 @@ a.client-handle:hover{color:var(--gold)}
 .contact-copy h2{font-size:clamp(2rem,5vw,2.9rem);margin-bottom:.4em}
 .contact-copy .eyebrow{display:block;margin-bottom:14px}
 .contact-copy p{color:var(--ink-soft)}
-.contact-note{display:flex;align-items:flex-start;gap:12px;margin-top:26px;padding:20px 22px;background:var(--cream-2);border-radius:16px;border:1px solid var(--line)}
+.contact-note{display:flex;align-items:flex-start;gap:12px;margin-top:26px;padding:20px 22px;background:var(--sand);border-radius:16px;border:1px solid var(--line)}
 .contact-note .spark{margin-top:3px}
 .contact-note p{margin:0;font-size:.92rem;color:var(--ink)}
 .contact-list{list-style:none;margin:30px 0 0;padding:28px 0 0;border-top:1px solid var(--line);display:grid;gap:18px}
 .contact-list li{display:flex;align-items:center;gap:14px;font-size:1rem;color:var(--ink)}
-.contact-list svg{width:20px;height:20px;color:var(--gold-deep);flex:none}
+.contact-list svg{width:20px;height:20px;color:var(--taupe);flex:none}
 /* --gold-deep is ~3.6:1 here, so the text stays --ink and gold is the hover accent */
-.contact-list a{color:inherit;text-decoration:none;border-bottom:1.5px solid var(--blush-deep);transition:color .2s,border-color .2s}
-.contact-list a:hover{color:var(--gold-deep);border-color:var(--gold)}
-form{background:var(--paper);border:1px solid var(--line);border-radius:24px;padding:34px 30px;box-shadow:0 30px 60px -46px rgba(120,105,90,.7)}
+.contact-list a{color:inherit;text-decoration:none;border-bottom:1.5px solid var(--taupe);transition:color .2s,border-color .2s}
+.contact-list a:hover{color:var(--sage);border-color:var(--sage)}
+form{background:var(--paper);border:1px solid var(--line);border-radius:24px;padding:34px 30px;box-shadow:0 30px 60px -46px rgba(88,88,96,.7)}
 .field{margin-bottom:20px}
 .field label{display:block;font-weight:700;font-size:.82rem;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:8px}
 .field input,.field textarea{
-  width:100%;font-family:"Mulish",sans-serif;font-size:1rem;color:var(--ink);
-  padding:13px 15px;border:1px solid var(--line);border-radius:12px;background:var(--cream);
+  width:100%;font-family:"Inter",sans-serif;font-size:1rem;color:var(--ink);
+  padding:13px 15px;border:1px solid var(--line);border-radius:12px;background:var(--ivory);
   transition:border-color .2s,box-shadow .2s;
 }
-.field input:focus,.field textarea:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px rgba(185,151,91,.18)}
+.field input:focus,.field textarea:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 3px rgba(106,124,154,.28)}
 .field textarea{resize:vertical;min-height:120px}
 /* placeholder was browser-default grey; --taupe keeps it in palette and clearly
    lighter than the --ink input text so it never reads as a pre-filled value */
@@ -336,39 +335,39 @@ form{background:var(--paper);border:1px solid var(--line);border-radius:24px;pad
 /* form states */
 .form-error{
   margin:0 0 14px;padding:12px 14px;border-radius:12px;
-  background:#F7E4DC;border:1px solid var(--blush-deep);
+  background:#F7E4DC;border:1px solid var(--taupe);
   color:#7A4433;font-size:.9rem;
 }
 .form-error a{color:inherit;text-decoration:underline;text-underline-offset:2px}
 .form-sent{
   background:var(--paper);border:1px solid var(--line);border-radius:24px;
   padding:44px 34px;text-align:center;
-  box-shadow:0 30px 60px -46px rgba(120,105,90,.7);
+  box-shadow:0 30px 60px -46px rgba(88,88,96,.7);
 }
 .form-sent .spark{width:26px;height:26px;margin:0 auto 16px}
 .form-sent h3{font-size:1.7rem;margin-bottom:.4em}
 .form-sent p{color:var(--ink-soft);margin:0;font-size:.98rem}
 .form-sent:focus{outline:none}
-.form-sent:focus-visible{outline:2.5px solid var(--gold-deep);outline-offset:3px}
+.form-sent:focus-visible{outline:2.5px solid var(--blue-deep);outline-offset:3px}
 form .btn-primary{width:100%;justify-content:center;margin-top:6px}
 .hp{position:absolute;left:-9999px}
 
 /* ---------- footer ---------- */
-.footer{background:var(--espresso);color:#EAE0D6;padding:60px 0 30px}
+.footer{background:var(--charcoal);color:#ECEAE4;padding:60px 0 30px}
 .footer-top{display:grid;gap:34px;grid-template-columns:1fr;text-align:center}
-.footer-mark{font-family:"Fraunces",serif;font-weight:500;font-size:clamp(1.6rem,4.4vw,2.1rem);letter-spacing:.01em}
-.footer-mark span{color:var(--gold);font-style:italic}
-.footer-tag{font-size:.74rem;letter-spacing:.28em;text-transform:uppercase;color:#C9BCAE;margin-top:4px}
-.footer-tagline{font-family:"Fraunces",Georgia,serif;font-style:italic;font-size:1.02rem;color:#D8CCC0;margin:12px 0 0}
+.footer-mark{font-family:"Cormorant Garamond",serif;font-weight:500;font-size:clamp(1.6rem,4.4vw,2.1rem);letter-spacing:.01em}
+.footer-mark span{color:var(--taupe);font-style:italic}
+.footer-tag{font-size:.74rem;letter-spacing:.28em;text-transform:uppercase;color:#ADA79E;margin-top:4px}
+.footer-tagline{font-family:"Cormorant Garamond",Georgia,serif;font-style:italic;font-size:1.02rem;color:#C6B2A0;margin:12px 0 0}
 .footer-nav{display:flex;gap:22px;justify-content:center;flex-wrap:wrap}
-.footer-nav a{color:#D8CCC0;text-decoration:none;font-weight:600;font-size:.92rem;transition:color .2s}
-.footer-nav a:hover{color:var(--gold)}
+.footer-nav a{color:#D5D2CC;text-decoration:none;font-weight:600;font-size:.92rem;transition:color .2s}
+.footer-nav a:hover{color:var(--taupe)}
 .socials{display:flex;gap:14px;justify-content:center}
 .socials a{width:40px;height:40px;border:1px solid rgba(255,255,255,.16);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#EAE0D6;transition:.25s}
-.socials a:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-2px)}
+.socials a:hover{border-color:var(--taupe);color:var(--taupe);transform:translateY(-2px)}
 .footer-bottom{border-top:1px solid rgba(255,255,255,.12);margin-top:44px;padding-top:22px;display:flex;flex-wrap:wrap;gap:8px;justify-content:space-between;align-items:center;font-size:.82rem;color:#B7AA9D}
-.footer-bottom a{color:#C9BCAE;text-decoration:none;border-bottom:1px solid transparent;transition:.2s}
-.footer-bottom a:hover{color:var(--gold);border-color:var(--gold)}
+.footer-bottom a{color:#A8A39C;text-decoration:none;border-bottom:1px solid transparent;transition:.2s}
+.footer-bottom a:hover{color:var(--taupe);border-color:var(--taupe)}
 
 /* ---------- reveal ---------- */
 .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
@@ -377,27 +376,27 @@ form .btn-primary{width:100%;justify-content:center;margin-top:6px}
   .reveal{opacity:1;transform:none;transition:none}
   .value,.svc,.btn{transition:none}
 }
-:focus-visible{outline:2.5px solid var(--gold-deep);outline-offset:3px;border-radius:4px}
+:focus-visible{outline:2.5px solid var(--blue-deep);outline-offset:3px;border-radius:4px}
 
 /* ---------- force light: defeat in-app / iOS forced dark mode ---------- */
 @media (prefers-color-scheme: dark){
   :root{
-    --cream:#FAF5EE;--cream-2:#F5E9E0;--paper:#FFFDFA;--ink:#463D35;
-    --ink-soft:#6C6157;--taupe:#7D7268;--gold:#B9975B;--gold-deep:#9C7C3F;
-    --blush:#E7CFC2;--blush-deep:#D9B29E;--espresso:#403830;--line:#E6D8CC;
+    --ivory:#F6F4F0;--sand:#DCCEBB;--paper:#FFFFFF;--white:#FFFFFF;--ink:#3A3A3A;
+    --ink-soft:#6B6862;--blue:#6A7C9A;--blue-deep:#4F5F79;--sage:#50645A;
+    --taupe:#B79F8A;--charcoal:#3A3A3A;--line:#E4DBCE;
   }
-  html,body{background:#FAF5EE !important;color:#463D35 !important}
-  .nav{background:rgba(250,245,238,.82) !important}
-  .tint{background:#F5E9E0 !important}
-  .value,.svc,form,.phone,.drawer{background:#FFFDFA !important}
-  .field input,.field textarea{background:#FAF5EE !important;color:#463D35 !important}
-  .contact-note,.cream-2{background:#F5E9E0 !important}
-  .portrait img{background:#F5E9E0 !important;border-color:#E6D8CC !important}
-  .featured-logo{background:#FFFFFF !important;border-color:#E6D8CC !important}
-  .form-sent{background:#FFFDFA !important;border-color:#E6D8CC !important}
+  html,body{background:#F6F4F0 !important;color:#3A3A3A !important}
+  .nav{background:rgba(246,244,240,.82) !important}
+  .tint{background:#DCCEBB !important}
+  .value,.svc,form,.phone,.drawer{background:#FFFFFF !important}
+  .field input,.field textarea{background:#F6F4F0 !important;color:#3A3A3A !important}
+  .contact-note{background:#DCCEBB !important}
+  .portrait img{background:#DCCEBB !important;border-color:#E4DBCE !important}
+  .featured-logo{background:#FFFFFF !important;border-color:#E4DBCE !important}
+  .form-sent{background:#FFFFFF !important;border-color:#E4DBCE !important}
   .form-error{background:#F7E4DC !important;color:#7A4433 !important}
-  .portrait figcaption{color:#9C7C3F !important}
-  .footer{background:#403830 !important;color:#EAE0D6 !important}
+  .portrait figcaption{color:#4F5F79 !important}
+  .footer{background:#3A3A3A !important;color:#ECEAE4 !important}
   h1,h2,h3{color:inherit}
 }
 
@@ -442,7 +441,7 @@ form .btn-primary{width:100%;justify-content:center;margin-top:6px}
   <div class="wrap nav-inner">
     <a href="#top" class="nav-logo" aria-label="D&amp;A Creative Co. home">
       <span class="bm">D&amp;A <span>Creative</span> Co.</span>
-      <span class="bt">Social Media Management</span>
+      <span class="bt">Social Media Management &amp; Content Creation</span>
     </a>
     <nav class="nav-links" aria-label="Primary">
       <a href="#about">About</a>
@@ -472,8 +471,8 @@ form .btn-primary{width:100%;justify-content:center;margin-top:6px}
   <section class="hero">
     <div class="bloom b1"></div><div class="bloom b2"></div><div class="bloom b3"></div>
     <div class="wrap hero-inner">
-      <img class="hero-logo" src="images/dacreative-logo.webp" alt="D&amp;A Creative Co. — Social Media Management" width="1000" height="713" fetchpriority="high">
-      <p class="eyebrow">Social Media Management &nbsp;·&nbsp; Photography</p>
+      <img class="hero-logo" src="images/dacreative-logo.webp" alt="D&amp;A Creative Co. — Strategy. Storytelling. Content that connects." width="1000" height="629" fetchpriority="high">
+      <p class="eyebrow">Social Media Management &amp; Content Creation</p>
       <h1>Boutique social media, <em>made personal.</em></h1>
       <p class="hero-sub">The photos, the captions, the whole feed — made to feel less like marketing and more like you.</p>
       <div class="hero-cta">
@@ -672,15 +671,15 @@ form .btn-primary{width:100%;justify-content:center;margin-top:6px}
               <span class="phone-handle">@yourhandle<small>Managed by D&amp;A Creative</small></span>
             </div>
             <div class="feed">
-              <span style="background:linear-gradient(135deg,#E7CFC2,#D9B29E)"></span>
-              <span style="background:linear-gradient(135deg,#EFE2C4,#D9C28E)"></span>
-              <span style="background:linear-gradient(135deg,#F0DCD2,#E7CFC2)"></span>
-              <span style="background:linear-gradient(135deg,#E6D8CC,#CBB79E)"></span>
-              <span style="background:linear-gradient(135deg,#F4E6DC,#E7CFC2)"></span>
-              <span style="background:linear-gradient(135deg,#D9B29E,#B9975B)"></span>
-              <span style="background:linear-gradient(135deg,#EFE2C4,#E7CFC2)"></span>
-              <span style="background:linear-gradient(135deg,#E7CFC2,#CBB79E)"></span>
-              <span style="background:linear-gradient(135deg,#F0DCD2,#D9B29E)"></span>
+              <span style="background:linear-gradient(135deg,#DCCEBB,#C7B29E)"></span>
+              <span style="background:linear-gradient(135deg,#DDE3EC,#B7C0D0)"></span>
+              <span style="background:linear-gradient(135deg,#E7DAC8,#DCCEBB)"></span>
+              <span style="background:linear-gradient(135deg,#C2CBBE,#9FB0A4)"></span>
+              <span style="background:linear-gradient(135deg,#EDEBE6,#DDE3EC)"></span>
+              <span style="background:linear-gradient(135deg,#B79F8A,#6A7C9A)"></span>
+              <span style="background:linear-gradient(135deg,#DCCEBB,#E7DAC8)"></span>
+              <span style="background:linear-gradient(135deg,#C7B29E,#B79F8A)"></span>
+              <span style="background:linear-gradient(135deg,#DDE3EC,#9FB0A4)"></span>
             </div>
             <div class="phone-likes">
               <svg class="like-heart" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 21s-7-4.5-9.5-9C1 8.5 3 5 6.5 5 9 5 12 8 12 8s3-3 5.5-3C21 5 23 8.5 21.5 12 19 16.5 12 21 12 21z"/></svg>
@@ -718,7 +717,7 @@ form .btn-primary{width:100%;justify-content:center;margin-top:6px}
             </li>
             <li>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s7-5.6 7-11a7 7 0 1 0-14 0c0 5.4 7 11 7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>
-              <span>Long Island, NY</span>
+              <span>Long Island, Manhattan &amp; New Jersey</span>
             </li>
           </ul>
         </div>
@@ -761,7 +760,7 @@ form .btn-primary{width:100%;justify-content:center;margin-top:6px}
     <div class="footer-top">
       <div>
         <div class="footer-mark">D&amp;A <span>Creative</span> Co.</div>
-        <div class="footer-tag">Social Media Management</div>
+        <div class="footer-tag">Social Media Management &amp; Content Creation</div>
         <p class="footer-tagline">Where strategy meets storytelling.</p>
       </div>
       <nav class="footer-nav" aria-label="Footer">

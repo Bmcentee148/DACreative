@@ -26,7 +26,9 @@ Sections in document order, each with an anchor id used by both the desktop nav 
 
 ## Conventions that matter
 
-**Colors go through CSS variables.** The palette (`--cream`, `--ink`, `--gold`, `--blush`, `--espresso`, `--line`, …) is defined once in `:root`. Never hardcode a hex in a rule — add or reuse a variable.
+**Colors go through CSS variables.** The palette is defined once in `:root` and follows the client's brand board (`src/rebrand/`): `--ivory` (#F6F4F0 primary bg), `--sand` (#DCCEBB alternate sections/`.tint`), `--paper`/`--white` (#FFFFFF cards), `--ink` (#3A3A3A charcoal text), `--ink-soft` (muted body), `--blue` (#6A7C9A dusty blue — primary brand: filled buttons use the darker `--blue-deep` #4F5F79 for white-text AA), `--sage` (#50645A hover/secondary accent), `--taupe` (#B79F8A icons, dividers, ornaments, placeholder), `--charcoal` (footer). Never hardcode a hex in a rule — add or reuse a variable. **Contrast caveat:** the light `--blue` passes AA only for large text; small links/labels and white-on-blue buttons use `--blue-deep`. Verify with math when adding blue text (this bit twice during the rebrand).
+
+**Fonts:** headings are **Cormorant Garamond** (`"Cormorant Garamond",Georgia,serif`, weight 600 — it's lighter than the old Fraunces, hence the bump), body is **Inter** (`"Inter",system-ui,sans-serif`). Both from Google Fonts. Italic Cormorant is the accent voice (hero `em`, `.about-kicker`, `.about-sign`, `.footer-tagline`).
 
 **The site is deliberately light-only.** `color-scheme: only light` is set in three places, and there's a `@media (prefers-color-scheme: dark)` block that re-declares the whole palette and `!important`-overrides every surface. This exists to defeat forced dark mode in iOS/in-app browsers. **If you add a new section or surface with its own background, add a matching override to that dark-mode block** or it will invert on some devices.
 
@@ -34,15 +36,16 @@ Sections in document order, each with an anchor id used by both the desktop nav 
 
 **Images live in `images/` and are referenced by path.** They used to be inlined as base64 data URIs, which is why `index.html` was ~185 KB; it's ~43 KB now. Don't reintroduce data URIs — add new imagery as a file under `images/`.
 
-**`src/` holds the full-res originals and is gitignored.** Only the derivatives in `images/` are committed and served — nothing in `src/` is referenced by `index.html`. It currently holds the founder photos, the logo original, `Logo_Canva.png` (the superseded Focus & Feed mark, reference only), and `Client_logo.png` (1200×630, purpose not yet established — unused). Because it's ignored, **`src/` is not backed up by git**; treat the client's originals as living only on this machine unless they're archived elsewhere.
+**`src/` holds the full-res originals and is gitignored.** Only the derivatives in `images/` are committed and served — nothing in `src/` is referenced by `index.html`. It holds the founder photos, `Client_logo.png` (James Fowler, the featured client), and **`src/rebrand/`** — the current brand board: `logo.png` (horizontal logo), `submark.png` (circular badge, currently unused on the site), `ColorPallete.PNG` / `LogoandColors.jpeg` (the palette + typography spec). Also several superseded marks (`D&A_Logo.png`, `DACreative_logo.png`, `Logo_Canva.png`) kept only as archive. Because it's ignored, **`src/` is not backed up by git**; treat the client's originals as living only on this machine unless they're archived elsewhere.
 
-`images/dacreative-logo.webp` is a 1000×713 lossless WebP (78KB); the full-res 2000×2000 original is `src/D&A_Logo.png`. (`src/DACreative_logo.png` is the earlier ampersand-less version — superseded, kept only as archive.)
+`images/dacreative-logo.webp` is the hero logo — **lossy WebP q88 (118KB), 1000×629, aspect 1.592:1**, derived from `src/rebrand/logo.png`. Unlike the old flat mark, this one has a shaded peony and fine botanical linework, so it's lossy (lossless was 205KB) — treat it as photographic, not vector art.
 
-**The web copy is cropped to the artwork.** The supplied original is a 2000×2000 square in which the mark occupies only ~53% of the canvas (16% dead space above, 22% below), so sizing it by the canvas renders it visibly smaller than it should be. The shipped crop is the alpha bounding box — offset 103,303 at 1761×1255 — giving a true 1.403:1 aspect. Re-crop from the original if you ever regenerate:
+**The source has no alpha (near-white `#FEFEFE` background), so it's knocked out to transparency** — the hero has gradient "blooms" behind the logo that a solid background would occlude as a visible box. A naive white-key would eat the pale sage sprigs, so `knockout.swift` (repo root; compiled with `swiftc`, since there's no ImageMagick/PIL) does a threshold-feathered distance-from-white alpha that **preserves true colors** (alpha ramps only over the 5–26 near-white band; art beyond stays fully opaque) and auto-crops to the artwork bbox. To regenerate:
 
 ```sh
-sips -c 1255 1761 --cropOffset 303 103 'src/D&A_Logo.png' --out /tmp/logo-crop.png
-cwebp -lossless -z 9 -q 100 -resize 1000 0 -alpha_filter best /tmp/logo-crop.png -o images/dacreative-logo.webp
+swiftc -O knockout.swift -o knockout          # loads PNG, white->alpha, crops
+./knockout src/rebrand/logo.png /tmp/logo.png
+cwebp -q 88 -resize 1000 0 -alpha_q 100 /tmp/logo.png -o images/dacreative-logo.webp
 ```
 
 Because the crop removes the built-in padding, `.hero-logo`'s bottom margin supplies all the breathing room below the mark — don't reduce it assuming the image has its own.
@@ -72,13 +75,9 @@ If either portrait is ever replaced, re-match the head scale — that, not the c
 
 WebP is used without a `<picture>` fallback on purpose — the original build already shipped a base64 WebP hero logo with no fallback, and Safari has supported it since 2020. `libwebp` is installed via Homebrew, so `cwebp`/`dwebp` are available for re-encoding:
 
-```sh
-cwebp -lossless -z 9 -q 100 -resize 1000 0 -alpha_filter best /tmp/logo-crop.png -o images/dacreative-logo.webp
-```
+Use `-lossless` only for flat/line art with few solid colors (e.g. the James Fowler client logo). The hero mark is shaded, so it's lossy — see its section above. `libwebp`, `swiftc`, and `sips` are the only image tools available (no ImageMagick/PIL/numpy).
 
-Use `-lossless` for the logo and any flat/line art. The mark is ~92% transparent pixels over about 60 opaque colors, so lossless costs little and avoids artifacts on the thin script strokes.
-
-The logo is a **wreath badge with the "social media management" tagline baked into the artwork**, so it only works at hero size. The nav and footer deliberately use a Fraunces text wordmark instead ("D&amp;A <em>Creative</em> Co."), not the image — the badge at 48px nav height is illegible, and its dark-brown script would disappear on the espresso footer.
+The logo is a **horizontal mark with "Strategy. Storytelling. Content that connects." baked into the artwork**, so it only works at hero size. The nav and footer deliberately use a Cormorant Garamond text wordmark instead ("D&amp;A <em>Creative</em> Co."), not the image — the detailed mark at 48px nav height is illegible, and it would disappear on the charcoal footer. The **favicon** (`favicon.ico` + `images/favicon-{16,32}.png` + `apple-touch-icon.png`) is the Cormorant Garamond ampersand, ivory on a `--blue-deep` tile — regenerate by typesetting `&` at weight 700 and downscaling (16px is soft but legible; Cormorant has no optical-size axis). The **client descriptor** under both wordmarks reads "Social Media Management & Content Creation".
 
 **Animation respects `prefers-reduced-motion`,** both via a CSS block that neutralizes `.reveal`/hover transitions and via a JS check in the likes-ticker (it renders the final number and returns early). Any new motion needs the same treatment.
 

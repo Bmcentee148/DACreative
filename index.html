@@ -723,7 +723,7 @@ form .btn-primary{width:100%;justify-content:center;margin-top:6px}
           </ul>
         </div>
 
-        <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+        <form id="contactForm" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
           <input type="hidden" name="form-name" value="contact">
           <p class="hp" aria-hidden="true"><label>Don't fill this out: <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
           <div class="field">
@@ -864,7 +864,10 @@ document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 // page. Without this, Netlify serves its own unbranded confirmation and the
 // visitor is bounced off the site at the moment they decide to get in touch.
 (function(){
-  const form = document.querySelector('form[data-netlify]');
+  // Select by id, not [data-netlify]: Netlify consumes data-netlify and
+  // netlify-honeypot during build-time form detection and strips them from the
+  // deployed HTML, so an attribute selector matches locally but not in production.
+  const form = document.getElementById('contactForm');
   if(!form) return;
   const sent   = document.getElementById('formSent');
   const errBox = document.getElementById('formError');

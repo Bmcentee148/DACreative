@@ -14,6 +14,8 @@ There is no build system, no package manager, no tests, and no dependencies to i
 
 - **Preview:** open `index.html` directly in a browser, or `python3 -m http.server 8000` and visit `http://localhost:8000`.
 - **Deploy:** the contact form uses Netlify Forms (`data-netlify="true"`, `netlify-honeypot="bot-field"`, plus a hidden `form-name` input). The form only functions on a Netlify deploy; it will not submit locally.
+
+  **Netlify rewrites the form tag at deploy.** It consumes `data-netlify` and `netlify-honeypot` during build-time form detection and strips them from the served HTML — `<form name="contact" method="POST" data-netlify="true" …>` ships as `<form method='POST' name='contact'>`. Never select the form on those attributes: it works locally and silently fails in production, where the JS finds nothing, skips binding, and the browser does a native POST to Netlify's default confirmation page. The submit handler selects `#contactForm` for this reason. More generally, local testing cannot catch this class of bug — check the deployed HTML with `curl https://dacreativeco.com/ | grep '<form'`.
 - `index_old.html` is a manual backup of a previous revision, not a live page. Don't edit it as part of a change; leave it alone unless asked.
 
 ## Structure of `index.html`
